@@ -17,7 +17,7 @@ const HomwClient = ({ transferedList, user }: HomeProps) => {
     const { t } = useTranslation('Home')
 
     const transferedSent = transferedList
-        .filter((e: any) => e.studentId.toString() === user._id) // Filter by 'pending' status if needed
+        .filter((e: any) => e.studentId.toString() === user?._id) // Filter by 'pending' status if needed
         // .filter((e: any) => e.requests.some((r: any) => r.status === 'pending')) // Filter by 'pending' status if needed
         .map((e: any) =>
             e.requests.map((r: any) => ({
@@ -37,11 +37,11 @@ const HomwClient = ({ transferedList, user }: HomeProps) => {
         ).flat();  // Flatten the array to avoid nested arrays
 
     const transferedRequest = transferedList.filter((e: any) =>
-        e.requests.some((r: any) => r.userId._id.toString() === user._id)
+        e.requests.some((r: any) => r.userId?._id.toString() === user?._id)
     );
 
     const myTransfered = transferedList.filter((e: any) =>
-        e.studentId.toString() === user._id
+        e.studentId.toString() === user?._id
     );
 
 
