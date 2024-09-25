@@ -23,8 +23,6 @@ import {
 import { Input } from "../ui/input"
 import { useState } from "react"
 import { DialogClose } from "@radix-ui/react-dialog"
-import { useSession } from "next-auth/react"
-import { Bell } from "lucide-react"
 
 interface TopHomeProps {
     user?: any;
@@ -32,7 +30,6 @@ interface TopHomeProps {
 
 const TopHome = ({ user }: TopHomeProps) => {
     const router = useRouter()
-    // const { data: session } = useSession()
 
     const [data, setData] = useState({
         email: user?.email || '',
@@ -45,7 +42,8 @@ const TopHome = ({ user }: TopHomeProps) => {
 
     const createTransfer = async () => {
         if (!user?.email) {
-            toast.error('login to maintain ur exchange requests')
+            toast.error('please login first')
+            return
         }
         if (!data.email) {
             toast.error('please provide a valid email')
@@ -73,10 +71,6 @@ const TopHome = ({ user }: TopHomeProps) => {
 
     return (
         <div className="flex items-center justify-between mt-8">
-            {/* <Button variant={"outline"}>
-                <span className="sr-only">notifications</span>
-                <Bell />
-            </Button> */}
             <h1 className="font-bold text-xl">Tabadle Shop</h1>
             <Dialog>
                 <DialogTrigger asChild><Button>Create a transfer request</Button></DialogTrigger>
