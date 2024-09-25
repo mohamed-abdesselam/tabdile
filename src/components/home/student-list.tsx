@@ -28,7 +28,10 @@ const StudentList = ({ transferedList, user, role }: StudentListProps) => {
     const handleAccept = async (trId: string, userId: string) => {
         setLoading(true)
         try {
-            const response = await axios.post('/api/transfer/accept', { trId, userId });
+            const data = { trId, userId }
+            console.log(data);
+            
+            await axios.post('/api/transfer/accept', data);
             toast.success('Transfer request accepted')
             router.refresh()
         } catch (error) {
@@ -41,7 +44,7 @@ const StudentList = ({ transferedList, user, role }: StudentListProps) => {
     const handleRefuse = async (trId: string, userId: string) => {
         setLoading(true)
         try {
-            const response = await axios.post('/api/transfer/delete', { trId, userId });
+            await axios.post('/api/transfer/delete', { trId, userId });
             toast.success('Transfer request deleted')
             router.refresh()
         } catch (error) {

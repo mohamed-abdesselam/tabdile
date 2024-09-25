@@ -1,8 +1,6 @@
 import { getCurrentUser } from '@/actions/getCurrentUser';
 import Container from '@/components/container';
-import StudentList from '@/components/home/student-list';
 import TopHome from '@/components/home/top-home';
-import Transfer from '@/lib/models/Transfer';
 import { connectToDB } from '@/lib/mongoDB';
 import HomwClient from '@/components/home/home-client';
 import { getTransferDetails } from '@/actions/getTransferDetails';

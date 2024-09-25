@@ -5,7 +5,6 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
     const { trId, userId } = await req.json();
-    console.log(trId, userId);
 
     try {
         await connectToDB();
