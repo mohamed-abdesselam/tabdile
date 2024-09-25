@@ -86,7 +86,7 @@ export default function Header({ logo, upBar }: HeaderProps) {
               <div className="hidden md:flex items-center gap-4">
                 <Link href="/" className="text-lg hover:text-primary">{t('home')}</Link>
                 <Link href={`/${locale}/about`} className="text-lg hover:text-primary">{t('about')}</Link>
-                <Link href={`/${locale}/orders`} className="text-lg hover:text-primary">{t('orders')}</Link>
+                {/* <Link href={`/${locale}/orders`} className="text-lg hover:text-primary">{t('orders')}</Link> */}
               </div>
             </div>
             <div className="flex items-center gap-2 sm:gap-4">
